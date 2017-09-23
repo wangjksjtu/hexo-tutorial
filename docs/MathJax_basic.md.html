@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>MathJax_basic</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    extensions: [],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+    },
+    showMathMenu: false
+  });
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js">
+</script>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(171, 178, 191); background-color: rgb(40, 44, 52); overflow: auto; }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(124, 135, 156); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(82, 139, 255); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(124, 135, 156); border-color: rgb(75, 83, 98); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top: 2px dashed rgb(75, 83, 98); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(75, 83, 98); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) code { color: rgb(255, 255, 255); background-color: rgb(58, 63, 75); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(49, 54, 63); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(255, 255, 255); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(75, 83, 98) rgb(75, 83, 98) rgb(62, 68, 81); border-image: initial; background-color: rgb(58, 63, 75); }
+.markdown-preview[data-use-github-style] { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); background-color: rgb(255, 255, 255); overflow: scroll; }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left: 4px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { background-color: rgb(255, 255, 255); border-top: 1px solid rgb(204, 204, 204); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; background-color: rgba(0, 0, 0, 0.0392157); border-radius: 3px; }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0px; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(247, 247, 247); border-radius: 3px; }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0px; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; background-color: rgb(252, 252, 252); border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-image: initial; border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover .horizontal-scrollbar { visibility: visible; }
+.markdown-preview del { text-decoration: none; position: relative; }
+.markdown-preview del::after { border-bottom: 1px solid black; content: ""; left: 0px; position: absolute; right: 0px; top: 50%; }
+.markdown-preview .flash { animation: flash 1s ease-out 1; outline: rgba(255, 0, 0, 0) solid 1px; }
+.markdown-preview .flash:not(li) { display: block; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+.spell-check-corrections {
+  width: 25em !important;
+}
+
+pre.editor-colors {
+  background-color: #282c34;
+  color: #abb2bf;
+}
+pre.editor-colors .line.cursor-line {
+  background-color: rgba(153, 187, 255, 0.04);
+}
+pre.editor-colors .invisible {
+  color: #abb2bf;
+}
+pre.editor-colors .cursor {
+  border-left: 2px solid #528bff;
+}
+pre.editor-colors .selection .region {
+  background-color: #3e4451;
+}
+pre.editor-colors .bracket-matcher .region {
+  border-bottom: 1px solid #528bff;
+  box-sizing: border-box;
+}
+pre.editor-colors .invisible-character {
+  color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .indent-guide {
+  color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .wrap-guide {
+  background-color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .find-result .region.region.region,
+pre.editor-colors .current-result .region.region.region {
+  border-radius: 2px;
+  background-color: rgba(82, 139, 255, 0.24);
+  transition: border-color 0.4s;
+}
+pre.editor-colors .find-result .region.region.region {
+  border: 2px solid transparent;
+}
+pre.editor-colors .current-result .region.region.region {
+  border: 2px solid #528bff;
+  transition-duration: .1s;
+}
+pre.editor-colors .gutter .line-number {
+  color: #636d83;
+  -webkit-font-smoothing: antialiased;
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  color: #abb2bf;
+  background-color: #2c313a;
+}
+pre.editor-colors .gutter .line-number.cursor-line-no-selection {
+  background-color: transparent;
+}
+pre.editor-colors .gutter .line-number .icon-right {
+  color: #abb2bf;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed.git-line-removed::before {
+  bottom: -3px;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 25px;
+  border-bottom: 1px dotted rgba(224, 82, 82, 0.5);
+  pointer-events: none;
+}
+pre.editor-colors .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after,
+pre.editor-colors .fold-marker:after {
+  color: #abb2bf;
+}
+.syntax--comment {
+  color: #5c6370;
+  font-style: italic;
+}
+.syntax--comment .syntax--markup.syntax--link {
+  color: #5c6370;
+}
+.syntax--entity.syntax--name.syntax--type {
+  color: #e5c07b;
+}
+.syntax--entity.syntax--other.syntax--inherited-class {
+  color: #98c379;
+}
+.syntax--keyword {
+  color: #c678dd;
+}
+.syntax--keyword.syntax--control {
+  color: #c678dd;
+}
+.syntax--keyword.syntax--operator {
+  color: #abb2bf;
+}
+.syntax--keyword.syntax--other.syntax--special-method {
+  color: #61afef;
+}
+.syntax--keyword.syntax--other.syntax--unit {
+  color: #d19a66;
+}
+.syntax--storage {
+  color: #c678dd;
+}
+.syntax--storage.syntax--type.syntax--annotation,
+.syntax--storage.syntax--type.syntax--primitive {
+  color: #c678dd;
+}
+.syntax--storage.syntax--modifier.syntax--package,
+.syntax--storage.syntax--modifier.syntax--import {
+  color: #abb2bf;
+}
+.syntax--constant {
+  color: #d19a66;
+}
+.syntax--constant.syntax--variable {
+  color: #d19a66;
+}
+.syntax--constant.syntax--character.syntax--escape {
+  color: #56b6c2;
+}
+.syntax--constant.syntax--numeric {
+  color: #d19a66;
+}
+.syntax--constant.syntax--other.syntax--color {
+  color: #56b6c2;
+}
+.syntax--constant.syntax--other.syntax--symbol {
+  color: #56b6c2;
+}
+.syntax--variable {
+  color: #e06c75;
+}
+.syntax--variable.syntax--interpolation {
+  color: #be5046;
+}
+.syntax--variable.syntax--parameter {
+  color: #abb2bf;
+}
+.syntax--string {
+  color: #98c379;
+}
+.syntax--string.syntax--regexp {
+  color: #56b6c2;
+}
+.syntax--string.syntax--regexp .syntax--source.syntax--ruby.syntax--embedded {
+  color: #e5c07b;
+}
+.syntax--string.syntax--other.syntax--link {
+  color: #e06c75;
+}
+.syntax--punctuation.syntax--definition.syntax--comment {
+  color: #5c6370;
+}
+.syntax--punctuation.syntax--definition.syntax--method-parameters,
+.syntax--punctuation.syntax--definition.syntax--function-parameters,
+.syntax--punctuation.syntax--definition.syntax--parameters,
+.syntax--punctuation.syntax--definition.syntax--separator,
+.syntax--punctuation.syntax--definition.syntax--seperator,
+.syntax--punctuation.syntax--definition.syntax--array {
+  color: #abb2bf;
+}
+.syntax--punctuation.syntax--definition.syntax--heading,
+.syntax--punctuation.syntax--definition.syntax--identity {
+  color: #61afef;
+}
+.syntax--punctuation.syntax--definition.syntax--bold {
+  color: #e5c07b;
+  font-weight: bold;
+}
+.syntax--punctuation.syntax--definition.syntax--italic {
+  color: #c678dd;
+  font-style: italic;
+}
+.syntax--punctuation.syntax--section.syntax--embedded {
+  color: #be5046;
+}
+.syntax--punctuation.syntax--section.syntax--method,
+.syntax--punctuation.syntax--section.syntax--class,
+.syntax--punctuation.syntax--section.syntax--inner-class {
+  color: #abb2bf;
+}
+.syntax--support.syntax--class {
+  color: #e5c07b;
+}
+.syntax--support.syntax--type {
+  color: #56b6c2;
+}
+.syntax--support.syntax--function {
+  color: #56b6c2;
+}
+.syntax--support.syntax--function.syntax--any-method {
+  color: #61afef;
+}
+.syntax--entity.syntax--name.syntax--function {
+  color: #61afef;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #e5c07b;
+}
+.syntax--entity.syntax--name.syntax--section {
+  color: #61afef;
+}
+.syntax--entity.syntax--name.syntax--tag {
+  color: #e06c75;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #d19a66;
+}
+.syntax--entity.syntax--other.syntax--attribute-name.syntax--id {
+  color: #61afef;
+}
+.syntax--meta.syntax--class {
+  color: #e5c07b;
+}
+.syntax--meta.syntax--class.syntax--body {
+  color: #abb2bf;
+}
+.syntax--meta.syntax--method-call,
+.syntax--meta.syntax--method {
+  color: #abb2bf;
+}
+.syntax--meta.syntax--definition.syntax--variable {
+  color: #e06c75;
+}
+.syntax--meta.syntax--link {
+  color: #d19a66;
+}
+.syntax--meta.syntax--require {
+  color: #61afef;
+}
+.syntax--meta.syntax--selector {
+  color: #c678dd;
+}
+.syntax--meta.syntax--separator {
+  background-color: #373b41;
+  color: #abb2bf;
+}
+.syntax--meta.syntax--tag {
+  color: #abb2bf;
+}
+.syntax--underline {
+  text-decoration: underline;
+}
+.syntax--none {
+  color: #abb2bf;
+}
+.syntax--invalid.syntax--deprecated {
+  color: #523d14 !important;
+  background-color: #e0c285 !important;
+}
+.syntax--invalid.syntax--illegal {
+  color: white !important;
+  background-color: #e05252 !important;
+}
+.syntax--markup.syntax--bold {
+  color: #d19a66;
+  font-weight: bold;
+}
+.syntax--markup.syntax--changed {
+  color: #c678dd;
+}
+.syntax--markup.syntax--deleted {
+  color: #e06c75;
+}
+.syntax--markup.syntax--italic {
+  color: #c678dd;
+  font-style: italic;
+}
+.syntax--markup.syntax--heading {
+  color: #e06c75;
+}
+.syntax--markup.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
+  color: #61afef;
+}
+.syntax--markup.syntax--link {
+  color: #56b6c2;
+}
+.syntax--markup.syntax--inserted {
+  color: #98c379;
+}
+.syntax--markup.syntax--quote {
+  color: #d19a66;
+}
+.syntax--markup.syntax--raw {
+  color: #98c379;
+}
+.syntax--source.syntax--c .syntax--keyword.syntax--operator {
+  color: #c678dd;
+}
+.syntax--source.syntax--cpp .syntax--keyword.syntax--operator {
+  color: #c678dd;
+}
+.syntax--source.syntax--cs .syntax--keyword.syntax--operator {
+  color: #c678dd;
+}
+.syntax--source.syntax--css .syntax--property-name,
+.syntax--source.syntax--css .syntax--property-value {
+  color: #828997;
+}
+.syntax--source.syntax--css .syntax--property-name.syntax--support,
+.syntax--source.syntax--css .syntax--property-value.syntax--support {
+  color: #abb2bf;
+}
+.syntax--source.syntax--elixir .syntax--source.syntax--embedded.syntax--source {
+  color: #abb2bf;
+}
+.syntax--source.syntax--elixir .syntax--constant.syntax--language,
+.syntax--source.syntax--elixir .syntax--constant.syntax--numeric,
+.syntax--source.syntax--elixir .syntax--constant.syntax--definition {
+  color: #61afef;
+}
+.syntax--source.syntax--elixir .syntax--variable.syntax--definition,
+.syntax--source.syntax--elixir .syntax--variable.syntax--anonymous {
+  color: #c678dd;
+}
+.syntax--source.syntax--elixir .syntax--quoted {
+  color: #98c379;
+}
+.syntax--source.syntax--elixir .syntax--keyword.syntax--special-method,
+.syntax--source.syntax--elixir .syntax--embedded.syntax--section,
+.syntax--source.syntax--elixir .syntax--embedded.syntax--source.syntax--empty {
+  color: #e06c75;
+}
+.syntax--source.syntax--elixir .syntax--readwrite.syntax--module .syntax--punctuation {
+  color: #e06c75;
+}
+.syntax--source.syntax--elixir .syntax--regexp.syntax--section,
+.syntax--source.syntax--elixir .syntax--regexp.syntax--string {
+  color: #be5046;
+}
+.syntax--source.syntax--elixir .syntax--separator,
+.syntax--source.syntax--elixir .syntax--keyword.syntax--operator {
+  color: #d19a66;
+}
+.syntax--source.syntax--elixir .syntax--variable.syntax--constant {
+  color: #e5c07b;
+}
+.syntax--source.syntax--elixir .syntax--array,
+.syntax--source.syntax--elixir .syntax--scope,
+.syntax--source.syntax--elixir .syntax--section {
+  color: #828997;
+}
+.syntax--source.syntax--gfm .syntax--markup {
+  -webkit-font-smoothing: auto;
+}
+.syntax--source.syntax--gfm .syntax--link .syntax--entity {
+  color: #61afef;
+}
+.syntax--source.syntax--go .syntax--storage.syntax--type.syntax--string {
+  color: #c678dd;
+}
+.syntax--source.syntax--ini .syntax--keyword.syntax--other.syntax--definition.syntax--ini {
+  color: #e06c75;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--modifier.syntax--import {
+  color: #e5c07b;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type {
+  color: #e5c07b;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--operator.syntax--instanceof {
+  color: #c678dd;
+}
+.syntax--source.syntax--java-properties .syntax--meta.syntax--key-pair {
+  color: #e06c75;
+}
+.syntax--source.syntax--java-properties .syntax--meta.syntax--key-pair > .syntax--punctuation {
+  color: #abb2bf;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator {
+  color: #56b6c2;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--delete,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--in,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--of,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--instanceof,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--new,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--typeof,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--void {
+  color: #c678dd;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--string.syntax--quoted.syntax--json {
+  color: #e06c75;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation.syntax--string {
+  color: #e06c75;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation {
+  color: #98c379;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--constant.syntax--language.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--constant.syntax--language.syntax--json {
+  color: #56b6c2;
+}
+.syntax--source.syntax--ruby .syntax--constant.syntax--other.syntax--symbol > .syntax--punctuation {
+  color: inherit;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--logical.syntax--python {
+  color: #c678dd;
+}
+.syntax--source.syntax--python .syntax--variable.syntax--parameter {
+  color: #d19a66;
+}
+</style>
+  </head>
+  <body class='markdown-preview'><h1>MathJax Basic Tutorial</h1>
+<p>This tutorial is mainly from th
+is incredible answer <a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference">here</a>.
+Also it combines my practice and other posts which are listed in <strong>Reference</strong>.</p>
+<h2>Intended Readers</h2>
+<p>This tutorial is intended for beginner for Latex or MathJax and will take readers around one hour to look through. For further study, you can google related info or visit the <a href="https://www.mathjax.org/">offical website</a>.</p>
+<p>What’s worthy to mention is that this post is not suitable for <strong>experts</strong> in <strong>LaTex</strong> or <strong>MathJax</strong>, because it may be too simple and naive for them.</p>
+<h2>Content</h2>
+<p>By walking through this post, you can master these knowledge or at least be familiar with:</p>
+<ul>
+<li><strong>What MathJax is and Why we use MathJax?</strong></li>
+<li><strong>MathJax Basic Syntax</strong></li>
+<li><strong>Useful Example Symbols and Formulas</strong></li>
+</ul>
+<h2>What is MathJax?</h2>
+<p><strong>MathJax</strong> is a JavaScript display engine for mathematics that works in all browsers.
+It can be used to display <strong>LaTex</strong> formulas. In consequence, if you are experts of LaTex, you can almost use the same syntax in MathJax. For more info, check <a href="https://www.mathjax.org/">here</a>.</p>
+<p>The Benefits of MathJax are:</p>
+<ul>
+<li><strong>High-quality typography</strong>: MathJax™ uses CSS with web fonts or SVG, instead of bitmap images or Flash, so equations scale with surrounding text at all zoom levels.</li>
+<li><strong>Modular Input &amp; Output</strong>: MathJax is highly modular on input and output. Use MathML, TeX and ASCIImath as input and produce HTML+CSS, SVG and MathML as output.</li>
+<li><strong>Accessible &amp; reusable</strong>: MathJax is compatible with screenreaders &amp; provides zoom for everyone. You can also copy equations into Office, LaTeX, wikis, and other software.</li>
+<li><strong>Comprehensive Documents</strong>: <a href="http://docs.mathjax.org/en/latest/">http://docs.mathjax.org/en/latest/</a></li>
+</ul>
+<p>As a result, it is of great convenience for us to use MathJax in our websites.</p>
+<h2>Basic Syntax</h2>
+<h3>First of All</h3>
+<p>To see how any formula was written in any question or answer, including this one, right-click on the expression it and choose “Show Math As &gt; TeX Commands”. (When you do this, the ‘$’ will not display. Make sure you add these. See the next point.)</p>
+<h3>$…$ VS $$…$$</h3>
+<p><code>$...$</code> and <code>$$...$$</code> are used for display formulas in an Latex file. Also can they be used in Markdown, if you add MathJax render.</p>
+<p><strong>For inline formulas, enclose the formula in <code>$...$</code>. For displayed formulas, use <code>$$...$$</code>.</strong>  These render differently.</p>
+<p><code>$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$</code> is to show <span class="math"><script type="math/tex">\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}</script></span> (which is <strong>inline</strong> mode)</p>
+<p><code>$$\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}$$</code> is to show</p>
+<span class="math"><script type="math/tex; mode=display">\sum_{i=0}^n i^2 = \frac{(n^2+n)(2n+1)}{6}
+</script></span>
+<p>(which is display mode)</p>
+<p>ps: <code>\sum_{i=0}^n</code> and <code>\frac</code> are very common in formulas.</p>
+<h3>Greek Letters</h3>
+<p><code>\alpha, \beta, …, \omega</code> is to show <span class="math"><script type="math/tex">\alpha, \beta, …, \omega</script></span>. <strong>For uppercase</strong>, <code>\Gamma, \Delta, …, \Omega</code> is to show <span class="math"><script type="math/tex">\Gamma, \Delta, …, \Omega</script></span></p>
+<p>Some frequently used greek letters are listed as follows. You can skip this part now and review the table when you want to search for some particular one you need in your articles.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">name</th>
+<th style="text-align:center">Uppercase</th>
+<th style="text-align:center">MathJax</th>
+<th style="text-align:center">Lowercase</th>
+<th style="text-align:center">MathJax</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">alpha</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">A</script></span></td>
+<td style="text-align:center"><code>A</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\alpha</script></span></td>
+<td style="text-align:center"><code>\alpha</code></td>
+</tr>
+<tr>
+<td style="text-align:center">beta</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">B</script></span></td>
+<td style="text-align:center"><code>B</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\beta</script></span></td>
+<td style="text-align:center"><code>\beta</code></td>
+</tr>
+<tr>
+<td style="text-align:center">gamma</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\Gamma</script></span></td>
+<td style="text-align:center"><code>\Gamma</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\gamma</script></span></td>
+<td style="text-align:center"><code>\gamma</code></td>
+</tr>
+<tr>
+<td style="text-align:center">delta</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\Delta</script></span></td>
+<td style="text-align:center"><code>\Delta</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\delta</script></span></td>
+<td style="text-align:center"><code>\delta</code></td>
+</tr>
+<tr>
+<td style="text-align:center">epsilon</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">E</script></span></td>
+<td style="text-align:center"><code>E</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\epsilon</script></span></td>
+<td style="text-align:center"><code>\epsilon</code></td>
+</tr>
+<tr>
+<td style="text-align:center">zeta</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">Z</script></span></td>
+<td style="text-align:center"><code>Z</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\zeta</script></span></td>
+<td style="text-align:center"><code>\zeta</code></td>
+</tr>
+<tr>
+<td style="text-align:center">eta</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">H</script></span></td>
+<td style="text-align:center"><code>H</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\eta</script></span></td>
+<td style="text-align:center"><code>\eta</code></td>
+</tr>
+<tr>
+<td style="text-align:center">theta</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\Theta</script></span></td>
+<td style="text-align:center"><code>\Theta</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\theta</script></span></td>
+<td style="text-align:center"><code>\theta</code></td>
+</tr>
+<tr>
+<td style="text-align:center">iota</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">I</script></span></td>
+<td style="text-align:center"><code>I</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\iota</script></span></td>
+<td style="text-align:center"><code>\iota</code></td>
+</tr>
+<tr>
+<td style="text-align:center">kappa</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">K</script></span></td>
+<td style="text-align:center"><code>K</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\kappa</script></span></td>
+<td style="text-align:center"><code>\kappa</code></td>
+</tr>
+<tr>
+<td style="text-align:center">lambda</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\Lambda</script></span></td>
+<td style="text-align:center"><code>\Lambda</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\lambda</script></span></td>
+<td style="text-align:center"><code>\lambda</code></td>
+</tr>
+<tr>
+<td style="text-align:center">mu</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">M</script></span></td>
+<td style="text-align:center"><code>M</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\mu</script></span></td>
+<td style="text-align:center"><code>\mu</code></td>
+</tr>
+<tr>
+<td style="text-align:center">nu</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">N</script></span></td>
+<td style="text-align:center"><code>N</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\nu</script></span></td>
+<td style="text-align:center"><code>\nu</code></td>
+</tr>
+<tr>
+<td style="text-align:center">xi</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\Xi</script></span></td>
+<td style="text-align:center"><code>\Xi</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\xi</script></span></td>
+<td style="text-align:center"><code>\xi</code></td>
+</tr>
+<tr>
+<td style="text-align:center">omicron</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">O</script></span></td>
+<td style="text-align:center"><code>O</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\omicron</script></span></td>
+<td style="text-align:center"><code>\omicron</code></td>
+</tr>
+<tr>
+<td style="text-align:center">pi</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\Pi</script></span></td>
+<td style="text-align:center"><code>\Pi</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\pi</script></span></td>
+<td style="text-align:center"><code>\pi</code></td>
+</tr>
+<tr>
+<td style="text-align:center">rho</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">P</script></span></td>
+<td style="text-align:center"><code>P</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\rho</script></span></td>
+<td style="text-align:center"><code>\rho</code></td>
+</tr>
+<tr>
+<td style="text-align:center">sigma</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\Sigma</script></span></td>
+<td style="text-align:center"><code>\Sigma</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\sigma</script></span></td>
+<td style="text-align:center"><code>\sigma</code></td>
+</tr>
+<tr>
+<td style="text-align:center">tau</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">T</script></span></td>
+<td style="text-align:center"><code>T</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\tau</script></span></td>
+<td style="text-align:center"><code>\tau</code></td>
+</tr>
+<tr>
+<td style="text-align:center">upsilon</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\Upsilon</script></span></td>
+<td style="text-align:center"><code>\Upsilon</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\upsilon</script></span></td>
+<td style="text-align:center"><code>\upsilon</code></td>
+</tr>
+<tr>
+<td style="text-align:center">phi</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\Phi</script></span></td>
+<td style="text-align:center"><code>\Phi</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\phi</script></span></td>
+<td style="text-align:center"><code>\phi</code></td>
+</tr>
+<tr>
+<td style="text-align:center">chi</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">X</script></span></td>
+<td style="text-align:center"><code>X</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\chi</script></span></td>
+<td style="text-align:center"><code>\chi</code></td>
+</tr>
+<tr>
+<td style="text-align:center">psi</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\Psi</script></span></td>
+<td style="text-align:center"><code>\Psi</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\psi</script></span></td>
+<td style="text-align:center"><code>\psi</code></td>
+</tr>
+<tr>
+<td style="text-align:center">omega</td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\Omega</script></span></td>
+<td style="text-align:center"><code>\Omega</code></td>
+<td style="text-align:center"><span class="math"><script type="math/tex">\omega</script></span></td>
+<td style="text-align:center"><code>\omega</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Superscripts or Subscripts</h3>
+<p>Just use <code>^</code> and <code>_</code>. For instance,
+<code>x_i^2</code>: <span class="math"><script type="math/tex">x_i^2</script></span>, <code>log_2 x</code>: <span class="math"><script type="math/tex">log_2 x</script></span>. If superscripts or subscripts are expressions, just use <code>{}</code>.</p>
+<p><strong>Groups</strong>: Superscripts, subscripts, and other operations apply only to the next “group”. A “group” is either a single symbol, or any formula surrounded by curly braces <code>{</code>…<code>}</code>. If you do <code>10^10</code>, you will get <span class="math"><script type="math/tex">10^10</script></span>. Actually, you should use <code>10^{10}</code> instead. The correct display is <span class="math"><script type="math/tex">10^{10}</script></span></p>
+<p><strong>Other Examples</strong>: Use curly braces to delimit a formula to which a superscript or subscript applies: <code>x^5^6</code> is an error; <code>x^{y^z}</code> is <span class="math"><script type="math/tex">x^{y^z}</script></span>. However, <code>{x^y}^z</code> is <span class="math"><script type="math/tex">{x^y}^z</script></span>
+Meanwhile, <code>x_i^2</code> is <span class="math"><script type="math/tex">x_i^2</script></span>, but <code>x_{i^2}</code> is <span class="math"><script type="math/tex">x_{i^2}</script></span></p>
+<h3>Parentheses</h3>
+<p>Ordinary symbols <code>()[]</code> make parentheses and brackets <span class="math"><script type="math/tex">(2+3)[4+4]</script></span> Use <code>\{</code> and <code>\}</code> for curly braces <code>{ }</code>.</p>
+<p>These do not scale with the formula in between, so if you write <code>(\frac{\sqrt x}{y^3})</code>, the parentheses will be too small: <span class="math"><script type="math/tex">(\frac{\sqrt x}{y^3})</script></span>. Using <code>\left</code> and <code>\right</code> will make the sizes adjust automatically to the formula they enclose:
+<code>\left(\frac{\sqrt x}{y^3}\right)</code> is <span class="math"><script type="math/tex">\left(\frac{\sqrt x}{y^3}\right)</script></span></p>
+<p><code>\left</code> and <code>\right</code> apply to all the following sorts of parentheses: <code>(</code>and<code>)</code><span class="math"><script type="math/tex">\left(x\right)</script></span>, <code>[</code>and<code>]</code><span class="math"><script type="math/tex">\left[x\right]</script></span>, <code>\{</code>and<code>\}</code> <span class="math"><script type="math/tex">\left\{x\right\}</script></span>, <code>|</code> <span class="math"><script type="math/tex">\left|x\right|</script></span>, <code>\vert</code> <span class="math"><script type="math/tex">\left\vert x\right\vert</script></span>, <code>\Vert</code> <span class="math"><script type="math/tex">\left\Vert x\right\Vert</script></span> , <code>\langle</code>and<code>\rangle</code> <span class="math"><script type="math/tex">\left\langle  x\right\rangle</script></span>, <code>\lceil</code>and<code>\rceil</code> <span class="math"><script type="math/tex">\left\lceil x\right\rceil</script></span>, and <code>\lfloor</code>and <code>\rfloor</code> <span class="math"><script type="math/tex">\left\lfloor x\right\rfloor</script></span>. There are also invisible parentheses, denoted by <code>.</code>: <code>\left.\frac12\right\rbrace</code> is <span class="math"><script type="math/tex">\left.\frac12\right\rbrace</script></span>.</p>
+<p>If manual size adjustments are required: <code>\Biggl(\biggl(\Bigl(\bigl((x^y)\bigr)\Bigr)\biggr)\Biggr)</code> <span class="math"><script type="math/tex">\Biggl(\biggl(\Bigl(\bigl((x^y)\bigr)\Bigr)\biggr)\Biggr)</script></span></p>
+<h3>Sums, Integral and Others</h3>
+<p><code>\sum</code> and <code>\int</code>:
+<code>\sum_1^n</code> is <span class="math"><script type="math/tex">\sum_1^n</script></span>. <code>\sum_{i=0}^\infty i^2</code> is <span class="math"><script type="math/tex">\sum_{i=0}^\infty i^2</script></span>. <code>\int_a^b</code> is <span class="math"><script type="math/tex">\int_a^b</script></span></p>
+<p><strong>Others</strong>: <code>\prod</code> <span class="math"><script type="math/tex">\prod</script></span>, <code>\bigcup</code> <span class="math"><script type="math/tex">\bigcup</script></span> <code>\bigcap</code> <span class="math"><script type="math/tex">\bigcap</script></span>, <code>\iint</code> <span class="math"><script type="math/tex">\iint</script></span> and <code>\iiint</code> <span class="math"><script type="math/tex">\iiint</script></span>.</p>
+<h3>Fractions</h3>
+<p>There are two ways to make these. <code>\frac ab</code> is <span class="math"><script type="math/tex">\frac ab</script></span>. <code>\frac{a+1}{b+1}</code> is <span class="math"><script type="math/tex">\frac{a+1}{b+1}</script></span>. If the numerator and the denominator are complicated, you may prefer <code>\over</code>, which splits up the group that it is in: <code>{a+1\over b+1}</code> is <span class="math"><script type="math/tex">a+1\over b+1</script></span></p>
+<h3>Fonts</h3>
+<p><code>\mathbb</code>, <code>\mathbf</code>, <code>\mathtt</code>, <code>\mathrm</code>, <code>\mathsf</code>, <code>\mathcal</code>, <code>\mathscr</code>, <code>\mathcal</code>, <code>\mathscr</code>, <code>\mathfrak</code>
+<code>\mathbb</code>, <code>\mathbf</code>, <code>\mathtt</code>, <code>\mathrm</code>, <code>\mathsf</code> <strong>Example</strong>: <span class="math"><script type="math/tex">\mathbb A \mathbf A \mathtt A \mathrm A \mathsf A \mathcal A \mathscr A \mathcal A \mathscr A \mathfrak A
+\mathbb A \mathbf A \mathtt A \mathrm A \mathsf A</script></span>.</p>
+<h3>Radical signs</h3>
+<p>Use <code>\sqrt{}</code>: <code>\sqrt{\sqrt{x_2^3}}</code> is <span class="math"><script type="math/tex">\sqrt[3]{5 + \sqrt{x_2^3}}</script></span></p>
+<p>For complicated expressions, use <code>\left(5 + \left({x_2^3}\right)^{1/2}\right)^{1/3}</code></p>
+<span class="math"><script type="math/tex; mode=display">\left(5 + \left({x_2^3}\right)^{1/2}\right)^{1/3}
+</script></span>
+<h3>Special Functions</h3>
+<p><code>\sin</code>, <code>\ln</code>, <code>\exp</code>, <code>\lim</code>
+<code>\sin x</code> is <span class="math"><script type="math/tex">\sin x</script></span>. <code>\ln \sqrt[3]{x^2+y^2}</code> is <span class="math"><script type="math/tex">\ln \sqrt[3]{x^2+y^2}</script></span> <code>\exp x</code> is <span class="math"><script type="math/tex">\exp(x)</script></span>. <code>\lim_{x\to 0}</code> is <span class="math"><script type="math/tex">\lim_{x\to 0}</script></span>.
+Please pay attention the differences between <strong>inline mode</strong> and <strong>displayed mode</strong></p>
+<span class="math"><script type="math/tex; mode=display">\lim_{x\to 0}
+</script></span>
+<h3>Special symobols and notations</h3>
+<ul>
+<li><code>\lt, \gi, \le \ge \neq</code>: <span class="math"><script type="math/tex">\lt\gt\le\ge\neq</script></span>. You can use <code>\not</code> to put a slash through almost anything: <code>\not\lt</code> <span class="math"><script type="math/tex">\not\lt</script></span> but it often looks bad.</li>
+<li><code>\times \div \pm \mp</code> <span class="math"><script type="math/tex">\times\div\pm\mp</script></span>. <code>\cdot</code> is a centered dot: <span class="math"><script type="math/tex">x \cdot y</script></span></li>
+<li><code>\cup \cap \setminus \subset \subseteq \subsetneq \supset \in \notin \emptyset \varnothing</code> <span class="math"><script type="math/tex">\cup \cap \setminus \subset \subseteq \subsetneq \supset \in \notin \emptyset \varnothing</script></span></li>
+<li><code>{n+1 \choose 2k}</code> or <code>\binom{n+1}{2k}1</code> <span class="math"><script type="math/tex">{n+1 \choose 2k}</script></span> vs <span class="math"><script type="math/tex">\binom{n+1}{2k}</script></span></li>
+<li><code>\to \rightarrow \leftarrow \Rightarrow \Leftarrow \mapsto</code> <span class="math"><script type="math/tex">\to \rightarrow \leftarrow \Rightarrow \Leftarrow \mapsto</script></span></li>
+<li><code>\land \lor \lnot \forall \exists \top \bot \vdash \vDash</code> <span class="math"><script type="math/tex">\land \lor \lnot \forall \exists \top \bot \vdash \vDash</script></span></li>
+<li><code>\star \ast \oplus \circ \bullet</code><span class="math"><script type="math/tex">\star \ast \oplus \circ \bullet</script></span></li>
+<li><code>\approx \sim \simeq \cong \equiv \prec \lhd</code> <span class="math"><script type="math/tex">\approx \sim \simeq \cong \equiv \prec \lhd</script></span></li>
+<li><code>\infty \aleph_0</code> <span class="math"><script type="math/tex">\infty \aleph_0</script></span> <code>\nabla \partial</code> <span class="math"><script type="math/tex">\nabla \partial</script></span> <code>\Im \Re</code> <span class="math"><script type="math/tex">\Im \Re</script></span></li>
+<li><code>\pmod</code> and <code>\equiv</code>: <code>a\equiv b\pmod n</code> <span class="math"><script type="math/tex">a\equiv b\pmod n</script></span></li>
+<li><code>\ldots</code> is the dots in <span class="math"><script type="math/tex">a_1, a_2, \ldots, a_n</script></span>. <code>\cdots</code> is the dots in <span class="math"><script type="math/tex">a_1 + a_2 + \cdots + a_n</script></span></li>
+<li>Some Greek letters have variant forms: <code>\epsilon \varepsilon</code> <span class="math"><script type="math/tex">\epsilon \varepsilon</script></span>, <code>\phi \varphi</code> <span class="math"><script type="math/tex">\phi \varphi</script></span>, and others.
+Script lowercase l is <code>\ell</code> <span class="math"><script type="math/tex">\ell</script></span></li>
+</ul>
+<p><a href="http://detexify.kirelabs.org/classify.html">Detexify</a> lets you draw a symbol on a web page and then lists the TeX symbols that seem to resemble it. These are not guaranteed to work in MathJax but are a good place to start. To check that a command is supported, note that <a href="http://MathJax.org">MathJax.org</a> maintains a <a href="http://docs.mathjax.org/en/latest/tex.html#supported-latex-commands">list of currently supported LaTeX commands</a>, and one can also check Dr. Carol JVF Burns’s page of <a href="http://www.onemathematicalcat.org/MathJaxDocumentation/TeXSyntax.htm">TeX Commands Available in MathJax</a>.</p>
+<h3>Spaces</h3>
+<p>MathJax usually decides for itself how to space formulas, using a complex set of rules. Putting extra literal spaces into formulas will not change the amount of space MathJax puts in: <code>a_b</code> and <code>a__b</code> are both <span class="math"><script type="math/tex">a b</script></span>. To add more space, use <code>\,</code> for a thin space <span class="math"><script type="math/tex">a\,b</script></span>; <code>\;</code> for a wider space. <code>\quad</code> and <code>\qquad</code> are large spaces: <span class="math"><script type="math/tex">a\quad b</script></span>, <span class="math"><script type="math/tex">a\qquad b</script></span>.</p>
+<h3>others</h3>
+<p><strong>Accents and diacritical marks</strong>: Use <code>\hat</code> for a single symbol <span class="math"><script type="math/tex">\hat x</script></span>, <code>\widehat</code> for a larger formula <span class="math"><script type="math/tex">\widehat {xyz}</script></span>. Similarly, there are <code>\bar</code> <span class="math"><script type="math/tex">\bar x</script></span> and <code>\overline</code> <span class="math"><script type="math/tex">\overline{xyz}</script></span>, and <code>\vec</code> <span class="math"><script type="math/tex">\vec x</script></span>, <code>\overrightarrow</code> <span class="math"><script type="math/tex">\overrightarrow {xyz}</script></span> and <code>\overleftrightarrow</code> <span class="math"><script type="math/tex">\overleftrightarrow {xyz}</script></span>. For dots. as in <span class="math"><script type="math/tex">{d \over dx}x\dot x = \ddot x^2 + \dot x \ddot x</script></span>, use <code>\dot</code> and <code>\ddot</code></p>
+<p><strong>Special characters escaping</strong>: Just use the <code>\</code> character: <code>\$</code> <span class="math"><script type="math/tex">\$</script></span>, <code>\{</code> <span class="math"><script type="math/tex">\{</script></span>, <code>\_</code> <span class="math"><script type="math/tex">\_</script></span>, etc. If you want <code>\</code> itself, you should use <code>\backslash</code> <span class="math"><script type="math/tex">\backslash</script></span>, because <code>\\</code> is for a new line.</p>
+<h3>In the end.</h3>
+<p>This tutorial is almost in the end. If you have walked through this tutorial carefully and do some practices(important and essential), you are able to write almost all the formulas by yourself now. More practices, more proficient you will be.</p>
+<p>Thanks <strong><em>Mark Dominus</em></strong> again for this <a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference">incredible answer</a>, which I mainly followed and referred to.</p>
+<p>Finally, allow me write an formula to say goodbye!</p>
+<span class="math"><script type="math/tex; mode=display">F \cdot t
+\\
+x^2 + \left(y - \sqrt[3]{x^2} \right)^2 = 1
+\\
+\frac {\Delta Q \cdot R} {\Delta t}
+</script></span>
+<h2>Reference</h2>
+<ul>
+<li><a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference">https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference</a></li>
+<li><a href="http://xovel.cn/article/mathjax-basic-tutorial-and-quick-reference.html">http://xovel.cn/article/mathjax-basic-tutorial-and-quick-reference.html</a></li>
+<li><a href="http://detexify.kirelabs.org/classify.html">http://detexify.kirelabs.org/classify.html</a></li>
+<li><a href="http://docs.mathjax.org/en/latest/tex.html#supported-latex-commands">http://docs.mathjax.org/en/latest/tex.html#supported-latex-commands</a></li>
+<li><a href="http://www.onemathematicalcat.org/MathJaxDocumentation/TeXSyntax.htm">http://www.onemathematicalcat.org/MathJaxDocumentation/TeXSyntax.htm</a></li>
+</ul></body>
+</html>
