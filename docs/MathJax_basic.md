@@ -1,6 +1,5 @@
 # MathJax Basic Tutorial
-This tutorial is mainly from th
- is incredible answer [here](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference).
+This tutorial is mainly from this incredible answer [here](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference).
  Also it combines my practice and other posts which are listed in __Reference__.
 
 ## Intended Readers
@@ -44,10 +43,11 @@ __For inline formulas, enclose the formula in `$...$`. For displayed formulas, u
 
  ps: `\sum_{i=0}^n` and `\frac` are very common in formulas.
 
- ### Greek Letters ###
- `\alpha, \beta, …, \omega` is to show $\alpha, \beta, …, \omega$. __For uppercase__, `\Gamma, \Delta, …, \Omega` is to show $\Gamma, \Delta, …, \Omega$
+### Greek Letters
 
- Some frequently used greek letters are listed as follows. You can skip this part now and review the table when you want to search for some particular one you need in your articles.
+`\alpha, \beta, …, \omega` is to show $\alpha, \beta, …, \omega$. __For uppercase__, `\Gamma, \Delta, …, \Omega` is to show $\Gamma, \Delta, …, \Omega$
+
+Some frequently used greek letters are listed as follows. You can skip this part now and review the table when you want to search for some particular one you need in your articles.
 
 | name | Uppercase | MathJax | Lowercase | MathJax|
 | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
@@ -65,7 +65,6 @@ __For inline formulas, enclose the formula in `$...$`. For displayed formulas, u
 | mu | $M$ | `M` | $\mu$ | `\mu` |
 | nu | $N$ | `N` | $\nu$ | `\nu` |
 | xi | $\Xi$ | `\Xi` | $\xi$ | `\xi` |
-| omicron | $O$ | `O` | $\omicron$ | `\omicron` |
 | pi | $\Pi$ | `\Pi` | $\pi$ | `\pi` |
 | rho | $P$ | `P` | $\rho$ | `\rho` |
 | sigma | $\Sigma$ | `\Sigma` | $\sigma$ | `\sigma` |
@@ -75,6 +74,13 @@ __For inline formulas, enclose the formula in `$...$`. For displayed formulas, u
 | chi | $X$ | `X` | $\chi$ | `\chi` |
 | psi | $\Psi$ | `\Psi` | $\psi$ | `\psi` |
 | omega | $\Omega$ | `\Omega` | $\omega$ | `\omega` |
+
+<!-- Table: Greek Letters List -->
+<!-- Uncomment the upper comment line when use pacdoc --latex-engine=xelatex
+pdflatex doesn't support this usage-->
+
+<!--| omicron | $O$ | `O` | $\omicron$ | `\omicron` | -->
+<!-- For \omicron is not supported in latex -->
 
 ### Superscripts or Subscripts
 Just use `^` and `_`. For instance,
@@ -104,10 +110,14 @@ __Others__: `\prod` $\prod$, `\bigcup` $\bigcup$ `\bigcap` $\bigcap$, `\iint` $\
 ### Fractions
 There are two ways to make these. `\frac ab` is $\frac ab$. `\frac{a+1}{b+1}` is $\frac{a+1}{b+1}$. If the numerator and the denominator are complicated, you may prefer `\over`, which splits up the group that it is in: `{a+1\over b+1}` is $a+1\over b+1$
 
+
 ### Fonts
 `\mathbb`, `\mathbf`, `\mathtt`, `\mathrm`, `\mathsf`, `\mathcal`, `\mathscr`, `\mathcal`, `\mathscr`, `\mathfrak`
 `\mathbb`, `\mathbf`, `\mathtt`, `\mathrm`, `\mathsf` __Example__: $\mathbb A \mathbf A \mathtt A \mathrm A \mathsf A \mathcal A \mathscr A \mathcal A \mathscr A \mathfrak A
 \mathbb A \mathbf A \mathtt A \mathrm A \mathsf A$.
+-->
+
+<!-- Comment the upper line when use pandoc to convert to pdf. This is because \mathxxxs are not supported in latex -->
 
 ### Radical signs
 Use `\sqrt{}`: `\sqrt{\sqrt{x_2^3}}` is $\sqrt[3]{5 + \sqrt{x_2^3}}$
@@ -126,7 +136,9 @@ $$
 $$
 
 ### Special symobols and notations
-- `\lt, \gi, \le \ge \neq`: $\lt\gt\le\ge\neq$. You can use `\not` to put a slash through almost anything: `\not\lt` $\not\lt$ but it often looks bad.
+<!--
+- `\lt, \gi, \le \ge \neq`: $\lt\gt\le\ge\neq$. You can use `\not` to put a slash through almost anything: `\not\lt` $\not\lt$ but it often looks bad. -->
+<!-- Comment the upper line when use pandoc to convert to pdf. This is because some of them such as \lt are not supported in latex -->
 - `\times \div \pm \mp` $\times\div\pm\mp$. `\cdot` is a centered dot: $x \cdot y$
 - `\cup \cap \setminus \subset \subseteq \subsetneq \supset \in \notin \emptyset \varnothing` $\cup \cap \setminus \subset \subseteq \subsetneq \supset \in \notin \emptyset \varnothing$
 - `{n+1 \choose 2k}` or `\binom{n+1}{2k}1` ${n+1 \choose 2k}$ vs $\binom{n+1}{2k}$
@@ -157,10 +169,10 @@ Thanks ___Mark Dominus___ again for this [incredible answer](https://math.meta.s
 
 Finally, allow me write an formula to say goodbye!
 $$
-F \cdot t
-\\
-x^2 + \left(y - \sqrt[3]{x^2} \right)^2 = 1
-\\
+F \cdot t \;
+\left(
+x^2 + \left(y - \sqrt[3]{x^2} \right)^2 = 1 \;
+\right)
 \frac {\Delta Q \cdot R} {\Delta t}
 $$
 
@@ -170,3 +182,5 @@ $$
 - http://detexify.kirelabs.org/classify.html
 - http://docs.mathjax.org/en/latest/tex.html#supported-latex-commands
 - http://www.onemathematicalcat.org/MathJaxDocumentation/TeXSyntax.htm
+
+__Composed by__ _wangjksjtu_
